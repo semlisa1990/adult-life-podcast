@@ -349,6 +349,37 @@
   .ep-play svg { width: 14px; height: 14px; fill: var(--muted); transition: fill 0.3s; }
   .episode-card:hover .ep-play svg { fill: var(--bg); }
 
+  /* AUDIO PLAYER BUTTON */
+  .ep-play {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ep-play svg { z-index: 2; position: relative; }
+
+  .progress-circle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(var(--accent) var(--progress, 0%), transparent var(--progress, 0%));
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .ep-play.playing .progress-circle {
+    opacity: 0.35;
+  }
+
+  /* SVG ICONS */
+  .play-icon { display: block; }
+  .pause-icon { display: none; }
+
+  .ep-play.playing .play-icon { display: none; }
+  .ep-play.playing .pause-icon { display: block; }
+
   /* TEAM */
   .team {
     padding: 80px 48px 120px;
@@ -523,25 +554,30 @@
   </div>
   <div class="episodes-list">
 
-    <a class="episode-card" href="ССЫЛКА_НА_ВЫПУСК_1" target="_blank">
+    <a class="episode-card" href="#" data-audio="media/1.m4a">
       <div class="ep-num">01</div>
       <div class="ep-info">
         <h3>Кто такой взрослый?</h3>
         <p>Что значит стать взрослым — и когда это вообще происходит? В первом выпуске мы разбираемся, где проходит граница между детством и взрослой жизнью.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
+    
 
-    <a class="episode-card" href="ССЫЛКА_НА_ВЫПУСК_2" target="_blank">
+    <a class="episode-card" href="#" data-audio="media/2.m4a">
       <div class="ep-num">02</div>
       <div class="ep-info">
         <h3>Детская и взрослая дружба</h3>
         <p>Дружба в детстве и дружба во взрослой жизни — это одно и то же? Говорим о том, как меняются отношения с людьми, когда мы взрослеем.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -552,7 +588,9 @@
         <p>Зачем вообще работать — только ради денег или есть что-то большее?</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -563,7 +601,9 @@
         <p>Откуда берутся деньги, куда они уходят и почему взрослые всегда о них думают? Разбираемся, как научиться обращаться с деньгами ещё до того, как они появятся.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -574,7 +614,9 @@
         <p>Краткое описание темы выпуска — 1-2 предложения о чём говорили.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -585,7 +627,9 @@
         <p>Краткое описание темы выпуска — 1-2 предложения о чём говорили.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -596,7 +640,9 @@
         <p>Краткое описание темы выпуска — 1-2 предложения о чём говорили.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
@@ -607,16 +653,18 @@
         <p>Краткое описание темы выпуска — 1-2 предложения о чём говорили.</p>
       </div>
       <div class="ep-play">
-        <svg viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <div class="progress-circle"></div>
+        <svg class="play-icon" viewBox="0 0 16 16"><path d="M3 2.5l10 5.5-10 5.5z"/></svg>
+        <svg class="pause-icon" viewBox="0 0 16 16"><path d="M5 2v12M11 2v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
       </div>
     </a>
 
-  </div>
-</section>
+    </div>
+  </section>
 
-<div class="divider"></div>
+  <div class="divider"></div>
 
-<!-- TEAM -->
+  <!-- TEAM -->
 <section class="team" id="team">
   <div class="section-header">
     <h2>О нас</h2>
@@ -644,6 +692,69 @@
   <div class="footer-logo">Инструкция к взрослой жизни</div>
   <p>Школьный IT-проект · 4 класс · 2026</p>
 </footer>
+
+<script>
+  let currentAudio = null;
+  let currentPlayingButton = null;
+
+  // Убедимся, что у каждой кнопки есть прогресс-круг
+  document.querySelectorAll('.ep-play').forEach(btn => {
+    if (!btn.querySelector('.progress-circle')) {
+      const progressCircle = document.createElement('div');
+      progressCircle.className = 'progress-circle';
+      btn.insertBefore(progressCircle, btn.firstChild);
+    }
+  });
+
+  document.querySelectorAll('.episode-card[data-audio]').forEach(card => {
+    const playBtn = card.querySelector('.ep-play');
+
+    card.addEventListener('click', event => {
+      event.preventDefault();
+      const src = card.dataset.audio;
+      if (!src) return;
+
+      // Если это той же кнопке и аудио проигрывается - ставим паузу
+      if (currentPlayingButton === playBtn && currentAudio && !currentAudio.paused) {
+        currentAudio.pause();
+        playBtn.classList.remove('playing');
+        return;
+      }
+
+      // Если был другой трек - останавливаем его
+      if (currentAudio && currentAudio !== playBtn.audio) {
+        currentAudio.pause();
+        if (currentPlayingButton) {
+          currentPlayingButton.classList.remove('playing');
+        }
+      }
+
+      // Создаём аудио если его ещё нет у этой кнопки
+      if (!playBtn.audio) {
+        playBtn.audio = new Audio(src);
+        playBtn.audio.addEventListener('timeupdate', () => {
+          if (playBtn.audio.duration) {
+            const progress = (playBtn.audio.currentTime / playBtn.audio.duration) * 100;
+            playBtn.querySelector('.progress-circle').style.setProperty('--progress', progress + '%');
+          }
+        });
+        playBtn.audio.addEventListener('ended', () => {
+          playBtn.classList.remove('playing');
+          currentAudio = null;
+          currentPlayingButton = null;
+        });
+      }
+
+      // Устанавливаем текущее аудио и кнопку
+      currentAudio = playBtn.audio;
+      currentPlayingButton = playBtn;
+      playBtn.classList.add('playing');
+
+      // Проигрываем
+      currentAudio.play().catch(() => {});
+    });
+  });
+</script>
 
 </body>
 </html>
