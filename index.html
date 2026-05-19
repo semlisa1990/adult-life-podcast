@@ -694,6 +694,11 @@
 </footer>
 
 <script>
+  // Скролим в начало если нет якоря в URL
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
   let currentAudio = null;
   let currentPlayingButton = null;
 
